@@ -1,0 +1,31 @@
+<div class="xyz">
+    <br>
+    <form class="text-center"><h1><b>User Details</b></h1></form>
+    
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+          <table class="table table-striped" border="3">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let exp of expense">
+                  <td>{{exp.id}}</td>
+                  <td>{{exp.name}}</td>
+                  <td>{{exp.Email}}</td>
+                  <td><button (click)="onDelete(movie)" class="btn btn-danger delete-button">DELETE</button></td>
+                  <td><button (click)="onUpdate(id)" class="btn btn-success">UPDATE</button></td>
+                </tr>
+              </tbody>
+            </table>
+      
+      
+      </div>
+    </div>
+ </div>

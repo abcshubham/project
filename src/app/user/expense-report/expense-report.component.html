@@ -1,0 +1,37 @@
+
+<div class="erclass">
+  <form class="text-center">
+  <h1>Expense Report</h1><br>
+  <button (click)="newtran()" class="btn btn-success">New Transaction</button>
+  <br><br>
+  <h3>History of Expense</h3><br>
+
+  <div class="row" style="margin-left: 150px">
+    <table class="table table-striped" border="3">
+      <thead>
+        <tr>
+          <td>Name</td>
+          <td>Amount</td>
+          <td>Category</td>
+          <td>ModeOfPayment</td>
+          <td>Date</td>
+          <td>Description</td>
+          <td>Action</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let exp of expense">
+          <td>{{exp.name}}</td>
+          <td>{{exp.amount}}</td>
+          <td>{{exp.category}}</td>
+          <td>{{exp.paymentcategory}}</td>
+          <td>{{exp.date}}</td>
+          <td>{{exp.descrption}}</td>
+          <td><button (click)="onDelete(exp.assetid)" class="btn btn-danger">DELETE</button>
+          <button type="button" (click)="onUpdate(exp)" class="btn btn-success" style="margin-left: 10px">UPDATE</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</form>
+</div>

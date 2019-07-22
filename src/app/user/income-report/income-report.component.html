@@ -1,0 +1,37 @@
+
+<div class="irclass">
+  <form class="text-center">
+  <h1>Income Report</h1><br>
+  <button (click)="newtran()" class="btn btn-success">New Transaction</button>
+  <br><br>
+  <h3>History of Income</h3><br>
+
+  <div class="row" style="margin-left: 150px">
+    <table class="table table-striped" border="3">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Description</th>
+          <th>ModeOfPayment</th>
+          <th class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let exp of income">
+          <td>{{exp.name}}</td>
+          <td>{{exp.amount}}</td>
+          <td>{{exp.category}}</td>
+          <td>{{exp.date}}</td>
+          <td>{{exp.paymentcategory}}</td>
+          <td>{{exp.descrption}}</td>
+          <td><button (click)="onDelete(exp.billid)" class="btn btn-danger delete-button">DELETE</button>
+          <button type="button" (click)="onUpdate(exp)" class="btn btn-success" style="margin-left: 10px">UPDATE</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</form>
+</div>

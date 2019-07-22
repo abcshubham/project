@@ -1,0 +1,39 @@
+<div class="xyz">
+<br>
+<form class="text-center"><h1><b>Sign Up</b></h1>
+<p><b>Please fill in this form to create an account.</b></p>
+</form>
+  
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="">First Name</label>
+      <input [(ngModel)]="fname" type="text" placeholder="firstName" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="">Last Name</label>
+      <input [(ngModel)]="lname" type="text" placeholder="lastName" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="">Email</label>
+      <input [(ngModel)]="email" type="email" placeholder="email" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="">Password</label>
+      <input [(ngModel)]="password" type="password" requiredplaceholder="password" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="">Password</label>
+      <input [(ngModel)]="confirmPassword" type="password" placeholder="confirm password" class="form-control">
+    </div>
+    <p><b>By creating an account you agree to our <a href="#" style="color:black">Terms & Privacy</a>.</b></p>
+    <div class="form-group">
+        <button (click)="onSignup()" class="btn btn-success">Sign Up</button>
+        <button (click)="onCancel()" class="btn btn-danger" style="margin-left: 10px;">Cancel</button>
+    </div>
+  </div>
+</div>
+<br><br><br><br><br><br><br><br><br>
+</div>

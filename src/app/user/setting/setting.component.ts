@@ -21,9 +21,15 @@ export class SettingComponent implements OnInit {
     private router:Router,
     activeRoute: ActivatedRoute,
     private userService: UserService
-  ) { this.loadsetting}
+  ) { 
+    this.loadsetting();
+    
+  }
 
   ngOnInit() {
+    document.getElementById("loginbtn").setAttribute("Style","display:none");
+    document.getElementById("logup").setAttribute("Style","display:none");
+    document.getElementById("logoutbtn").setAttribute("Style","display:block");
     this.loadsetting();
   }
  
@@ -38,6 +44,7 @@ export class SettingComponent implements OnInit {
       this.fname=this.setting['fname'];
       this.lname=this.setting['lname'];
       this.role=this.setting['role'];
+      this.setting=[]
     })
   }
 
@@ -47,6 +54,7 @@ onSave()
     let result=response.json();
     console.log(this.id);
     this.router.navigate(['/dashboard']);
+    this.loadsetting();
   })
 }
   

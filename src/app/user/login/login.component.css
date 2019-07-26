@@ -1,6 +1,11 @@
  .abc {
-    background-image: url("src/assets/images/imga.jpg");
+    background-image: url("src/assets/images/wood.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    position: fixed;
+    left: 0;
     
 } 

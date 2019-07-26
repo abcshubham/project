@@ -31,7 +31,7 @@ export class UserService implements CanActivate{
       return true;
     }
 
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
     return false;
   }
   login(email: string, password: string) {
@@ -82,6 +82,10 @@ export class UserService implements CanActivate{
     return this.http.delete(this.url + '/' + id);
   }
 
+  deleteuser(id: number) 
+  {
+    return this.http.delete(this.url + '/deleteuser/' + id);
+  }
   deleteincome(abc: number) 
   {
     return this.http.delete(this.url + '/income/' + abc);
@@ -99,6 +103,10 @@ export class UserService implements CanActivate{
  getSetting()
  {
   return this.http.get(this.url+'/setting');
+ }
+ getASetting()
+ {
+  return this.http.get(this.url+'/adminsetting');
  }
   updateExpense(assetid,name,amount,category,payment_type,expense_date,descrption)
   {
@@ -160,11 +168,26 @@ export class UserService implements CanActivate{
     return this.http.get(this.url +"/totalincome");
   }
 
-updateSetting(id,email,password,fname,lname,role)
+updateSetting(id:number,email:string,password:string,fname:string,lname:string,role:string)
 {
   
   let newUrl=this.url+"/setting/"+id;
   this.setting={
+    id:id,
+    email:email,
+    password:password,
+    fname:fname,
+    lname:lname,
+    role:role
+  }
+  return this.http.put(newUrl,this.setting);
+}
+updateAdminSetting(id,email,password,fname,lname,role)
+{
+  
+  let newUrl=this.url+"/adminsetting/"+id;
+  this.setting={
+    "id":id,
     "email":email,
     "password":password,
     "fname":fname,
@@ -172,5 +195,41 @@ updateSetting(id,email,password,fname,lname,role)
     "role":role
   }
   return this.http.put(newUrl,this.setting);
+}
+
+expensemonth(b)
+{
+  return this.http.get(this.url +"/expensemonth/"+b);
+}
+
+
+incomemonth(b)
+{
+  return this.http.get(this.url +"/incomemonth/"+b);
+}
+
+expenseyear(b)
+{
+  return this.http.get(this.url +"/expenseabc/"+b);
+}
+
+
+incomeyear(b)
+{
+  return this.http.get(this.url +"/yearabc/"+b);
+}
+
+logout()
+{
+  return this.http.get(this.url+"/logout");
+}
+
+getuserdetails()
+{
+  return this.http.get(this.url + '/userDetails' );
+}
+totalu()
+{
+  return this.http.get(this.url + "/admin");
 }
 }

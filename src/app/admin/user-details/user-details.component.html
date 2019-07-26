@@ -15,12 +15,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let exp of expense">
+                <tr *ngFor="let exp of user">
                   <td>{{exp.id}}</td>
-                  <td>{{exp.name}}</td>
-                  <td>{{exp.Email}}</td>
-                  <td><button (click)="onDelete(movie)" class="btn btn-danger delete-button">DELETE</button></td>
-                  <td><button (click)="onUpdate(id)" class="btn btn-success">UPDATE</button></td>
+                  <td>{{exp.fname}}</td>
+                  <td>{{exp.email}}</td>
+                  <td><button (click)="onDelete(exp.id)" class="btn btn-danger delete-button">DELETE</button>
                 </tr>
               </tbody>
             </table>

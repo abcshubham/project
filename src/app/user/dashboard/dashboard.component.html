@@ -1,3 +1,4 @@
+<div class="abc">
 <div class="sidebar">
     <a class="active" href="/dashboard">Dashboard</a>
     <a href="/transaction-expense">Expense</a>
@@ -10,26 +11,29 @@
      </div>  
      </div>
      
-     <table>
+     <table id="abcd" style="display: block;"> 
          <br>
          <br>
          <br>
-         <tr style="margin-top:50px">
+         <tr style="margin-top:20px">
              <td class="abc">
-                <div class="card col-md-4 shadow-lg p-3 mb-5 bg-white" style="width: 25rem; margin-left: 320px">
+                <div class="card col-md-4 shadow-lg p-3 mb-5 bg-white" style="width: 25rem; margin-left: 200px">
                         <div class="card" padding:15px>
                           <h5 class="card-title"><b>Total Expense</b></h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                          <p class="card-text">Total Expense what we have done throughout.</p>
+                          <a  class="btn btn-primary">{{expense}}</a>
                         </div>
                 </div>
               </td> 
+              <td style="margin-left: 100px">
+
+              </td>
               <td>
-                <div class="card col-md-4 shadow-lg p-3 mb-5 bg-white" style="width: 25rem; margin-left: 120px">
+                <div class="card col-md-4 shadow-lg p-3 mb-5 bg-white" style="width: 25rem; margin-left: 50px">
                         <div class="card" padding:15px>
                         <h5 class="card-title"><b>Total Income</b></h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <p class="card-text">Income what we had been gain till now.</p>
+                        <a  class="btn btn-primary">{{income}}</a>
                         </div>
                 </div>
               </td>
@@ -37,33 +41,68 @@
             </tr>
                       <br>
                       <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
+                      
+                     
             <tr>
                 <td>
-                    <div class="card col-md-4 shadow-lg p-3 mb-5 bg-white" style="width: 25rem; margin-left: 320px">
+                    <div class="card col-md-4 shadow-lg p-3 mb-5 bg-white" style="width: 25rem; margin-left: 200px">
                             <div class="card" padding:15px>
                              <h5 class="card-title"><b>Monthly Expense</b></h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="btn btn-primary" >{{expense}}</a>
+                              <p class="card-text">Expense we Have done in the last Month.</p>
+                              <a  class="btn btn-primary" >{{expensemonth}}</a>
                              </div>
                     </div>
                 </td> 
+                <td class="card col-md-4 shadow-lg p-3 mb-5 bg-white" style="width: 25rem; margin-left: 100px">
+                  <div class="card" padding:15px>
+                    <h5 class="card-title"><b>Balance</b></h5>
+                    <p class="card-text">Income that we have gain in Last Month.</p>
+                    <a  class="btn btn-primary">{{income-expense}}</a>
+                    </div>
+                </td>
                 <td>
-                    <div class="card col-md-4 shadow-lg p-3 mb-5 bg-white" style="width: 25rem; margin-left: 120px">
+                    <div class="card col-md-4 shadow-lg p-3 mb-5 bg-white" style="width: 25rem; margin-left: 50px">
                         <div class="card" padding:15px>
                             <h5 class="card-title"><b>Monthly Income</b></h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">{{income}}</a>
+                            <p class="card-text">Income that we have gain in Last Month.</p>
+                            <a  class="btn btn-primary">{{incomemonth}}</a>
                             </div>
                     </div>
                 </td>
-              
+              </tr>
+              <br>
+                      <br>
+                      <br>
+                      <br>
            <tr>
+                <tr style="margin-top:30px">
+                        <td class="abc">
+                           <div class="card col-md-4 shadow-lg p-3 mb-5 bg-white" style="width: 25rem; margin-left: 200px">
+                                   <div class="card" padding:15px>
+                                     <h5 class="card-title"><b>Current year Expense</b></h5>
+                                     <p class="card-text">Total Expense what we have done throughout.</p>
+                                     <a  class="btn btn-primary">{{expenseyear}}</a>
+                                   </div>
+                           </div>
+                         </td> 
+                         <td style="margin-left: 80px">
+
+                        </td>
+                         <td>
+                           <div class="card col-md-4 shadow-lg p-3 mb-5 bg-white" style="width: 25rem; margin-left: 50px">
+                                   <div class="card" padding:15px>
+                                   <h5 class="card-title"><b>Current Year Income</b></h5>
+                                   <p class="card-text">Income what we had been gain till now.</p>
+                                   <a  class="btn btn-primary">{{incomeyear}}</a>
+                                   </div>
+                           </div>
+                         </td>
+                       
+                       </tr>
          
      </table>
+
+     </div>
  
         
   

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+  import { AdminserviceService } from 'src/app/adminservice.service';
 
 @Component({
   selector: 'app-add-user-admin',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddUserAdminComponent implements OnInit {
 
-  constructor() { }
+
+
 
   ngOnInit() {
   }
 
+  
 }

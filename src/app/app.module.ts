@@ -14,11 +14,17 @@ import { ExpenseReportComponent } from './user/expense-report/expense-report.com
 import { IncomeReportComponent } from './user/income-report/income-report.component';
 import { UpdateIncomeComponent } from './user/update-income/update-income.component';
 import { UpdateExpenseComponent } from './user/update-expense/update-expense.component';
-import { FrontPagesComponent } from './user/front-pages/front-pages.component';
 import { AdminSettingComponent } from './admin/admin-setting/admin-setting.component';
 import { AddUserAdminComponent } from './admin/add-user-admin/add-user-admin.component';
 import { UserDetailsComponent } from './admin/user-details/user-details.component';
 import { RouterModule } from '@angular/router';
+import { HomepageComponent } from './user/homepage/homepage.component';
+import { AdmindashboardComponent } from './admin/admindashboard/admindashboard.component';
+import { UserService } from './user.service';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactComponent } from './contact/contact.component';
+import { AdminserviceService } from './adminservice.service';
+
 
 
 @NgModule({
@@ -34,11 +40,13 @@ import { RouterModule } from '@angular/router';
     IncomeReportComponent,
     UpdateIncomeComponent,
     UpdateExpenseComponent,
-    FrontPagesComponent,
     AdminSettingComponent,
     AddUserAdminComponent,
-    UserDetailsComponent
-    
+    UserDetailsComponent,
+    HomepageComponent,
+    AdmindashboardComponent,
+    AboutusComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -48,21 +56,30 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     
     RouterModule.forRoot([
+      
       { path: 'login', component:LoginComponent },
       { path: 'register', component:RegisterComponent },
-      { path: 'dashboard', component:DashboardComponent},
-      { path: 'expense-report',component:ExpenseReportComponent},
-      { path: 'income-report', component:IncomeReportComponent},
-      { path: 'transaction-income',component:TransactionComponent},
-      { path: 'transaction-expense',component:TranscationExpenseComponent},
-      { path: 'update-expense', component:UpdateExpenseComponent},
-      { path : 'update-income', component:UpdateIncomeComponent},
-      {path : 'setting' , component:SettingComponent}
-     
+      { path: 'dashboard', component:DashboardComponent,canActivate:[UserService]},
+      { path: 'expense-report',component:ExpenseReportComponent,canActivate:[UserService]},
+      { path: 'income-report', component:IncomeReportComponent,canActivate:[UserService]},
+      { path: 'transaction-income',component:TransactionComponent,canActivate:[UserService]},
+      { path: 'transaction-expense',component:TranscationExpenseComponent,canActivate:[UserService]},
+      { path: 'update-expense', component:UpdateExpenseComponent,canActivate:[UserService]},
+      { path : 'update-income', component:UpdateIncomeComponent,canActivate:[UserService]},
+      { path : 'setting' , component:SettingComponent,canActivate:[UserService]},
+      { path : 'home' , component:HomepageComponent},
+      { path: 'addUserAdmin' , component:AddUserAdminComponent},
+      { path: 'addSetting' , component:AdminSettingComponent},
+      { path: 'userDetails' , component:UserDetailsComponent},
+      { path: 'admindashboard', component:AdmindashboardComponent},
+      { path : 'aboutus', component:AboutusComponent},
+      { path : 'contactus', component:ContactComponent},
+      
+    
 
     ])
   ],
-  providers: [],
+  providers: [UserService,AdminserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

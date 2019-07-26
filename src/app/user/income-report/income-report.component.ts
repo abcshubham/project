@@ -15,6 +15,9 @@ income=[];
   ) { }
 
   ngOnInit() {
+    document.getElementById("loginbtn").setAttribute("Style","display:none");
+    document.getElementById("logup").setAttribute("Style","display:none");
+    document.getElementById("logoutbtn").setAttribute("Style","display:block");
     this.loadExpRep();
   }
 

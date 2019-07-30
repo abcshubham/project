@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas'; 
+
 @Component({
   selector: 'app-income-report',
   templateUrl: './income-report.component.html',
@@ -59,4 +62,15 @@ income=[];
     this.router.navigate(['/update-income'],{queryParams:{billid:exp.billid}});
   }
 
+  invoice()
+  {
+  html2canvas(document.querySelector('#test1')).then(canvas => {
+	var pdf = new jspdf('p','pt',[200,700]);
+	var imgData= canvas.toDataURL("image/jpeg",3.0);
+	pdf.addImage(imgData,0,0,200,200);
+	pdf.save("incomereport.pdf");
+
+  });
+
+}
 }

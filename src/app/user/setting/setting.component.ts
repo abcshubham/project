@@ -57,5 +57,13 @@ onSave()
     this.loadsetting();
   })
 }
-  
+
+ChangeMOP()
+{
+  this.router.navigate(['/mop']);
+}
+ChangeCategory()
+{
+  this.router.navigate(['/categorychange']);
+}
 }

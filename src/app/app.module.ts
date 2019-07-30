@@ -24,6 +24,12 @@ import { UserService } from './user.service';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminserviceService } from './adminservice.service';
+import { UsercomplainComponent } from './user/usercomplain/usercomplain.component';
+import { UsercompComponent } from './admin/usercomp/usercomp.component';
+import { MoplistComponent } from './user/moplist/moplist.component';
+import { ChangecategoryComponent } from './user/changecategory/changecategory.component';
+import { AddmopComponent } from './user/addmop/addmop.component';
+import { AddcatComponent } from './user/addcat/addcat.component';
 
 
 
@@ -46,7 +52,13 @@ import { AdminserviceService } from './adminservice.service';
     HomepageComponent,
     AdmindashboardComponent,
     AboutusComponent,
-    ContactComponent
+    ContactComponent,
+    UsercomplainComponent,
+    UsercompComponent,
+    MoplistComponent,
+    ChangecategoryComponent,
+    AddmopComponent,
+    AddcatComponent
   ],
   imports: [
     BrowserModule,
@@ -68,14 +80,18 @@ import { AdminserviceService } from './adminservice.service';
       { path : 'update-income', component:UpdateIncomeComponent,canActivate:[UserService]},
       { path : 'setting' , component:SettingComponent,canActivate:[UserService]},
       { path : 'home' , component:HomepageComponent},
-      { path: 'addUserAdmin' , component:AddUserAdminComponent},
-      { path: 'addSetting' , component:AdminSettingComponent},
-      { path: 'userDetails' , component:UserDetailsComponent},
-      { path: 'admindashboard', component:AdmindashboardComponent},
+      { path: 'addUserAdmin' , component:AddUserAdminComponent,canActivate:[UserService]},
+      { path: 'addSetting' , component:AdminSettingComponent,canActivate:[UserService]},
+      { path: 'userDetails' , component:UserDetailsComponent,canActivate:[UserService]},
+      { path: 'admindashboard', component:AdmindashboardComponent,canActivate:[UserService]},
       { path : 'aboutus', component:AboutusComponent},
       { path : 'contactus', component:ContactComponent},
-      
-    
+      { path : 'complain', component:UsercomplainComponent},
+      { path : 'usercomp', component:UsercompComponent},
+      { path : 'mop', component:MoplistComponent},
+      { path : 'categorychange', component:ChangecategoryComponent },
+      { path : 'addmop', component:AddmopComponent},
+      { path : 'addcat', component:AddcatComponent}
 
     ])
   ],

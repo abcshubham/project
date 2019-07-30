@@ -1,0 +1,29 @@
+<div id="test1">
+  <form class="text-center">
+  <h1><b> Mode of Category</b></h1><br>
+  <button type="button" (click)="newcategory()" class="btn btn-success">Add New Category</button>
+  
+  <br><br>
+  
+
+  <div class="row" style="margin-left: 150px">
+    <table class="table table-striped" border="3">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>ModeOfCategory</th>
+          <th class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mop of payment">
+          <td>{{mop.ida}}</td>
+          <td>{{mop.modeofexpense}}</td>
+          <td><button (click)="onDelete(mop.ida)" class="btn btn-danger delete-button">DELETE</button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</form>
+</div>
+

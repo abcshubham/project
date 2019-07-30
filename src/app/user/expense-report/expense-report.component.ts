@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 import { asElementData } from '@angular/core/src/view';
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-expense-report',
@@ -58,5 +60,18 @@ export class ExpenseReportComponent implements OnInit {
     console.log(exp.assetid)
     this.router.navigate(['/update-expense'],{queryParams:{assetid:exp.assetid}});
   }
+  invoice()
+  {
+  html2canvas(document.querySelector('#test1')).then(canvas => {
+	var pdf = new jspdf('p','pt',[200,700]);
+	var imgData= canvas.toDataURL("image/jpeg",3.0);
+	pdf.addImage(imgData,0,0,200,200);
+	pdf.save("incomereport.pdf");
+
+  });
+
+}
+
+  
 
 }

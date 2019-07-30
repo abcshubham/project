@@ -1,0 +1,33 @@
+<div class="xyz">
+  <br>
+  <form class="text-center"><h1><b>User Details</b></h1></form>
+  
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <table class="table table-striped" border="3">
+            <thead>
+              <tr>
+                <th>CId</th>
+                
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Complaint</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let exp of admin">
+                <td>{{exp[0]}}</td>
+                <td>{{exp[1]}}</td>
+                <td>{{exp[2]}}</td>
+                <td>{{exp[3]}}</td>
+                <!-- <td><button (click)="onDelete(exp)" class="btn btn-danger delete-button">DELETE</button> -->
+              </tr>
+            </tbody>
+          </table>
+    
+    
+    </div>
+  </div>
+</div>

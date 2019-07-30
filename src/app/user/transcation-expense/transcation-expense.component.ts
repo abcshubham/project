@@ -8,6 +8,7 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./transcation-expense.component.css']
 })
 export class TranscationExpenseComponent implements OnInit {
+payment=[];
 
   amount=0;
   category='';
@@ -18,12 +19,23 @@ export class TranscationExpenseComponent implements OnInit {
 
   constructor(private router: Router,
     private userService:UserService
-    ) { }
+    ) { 
+      this.loadmop();
+    }
 
   ngOnInit() {
     document.getElementById("loginbtn").setAttribute("Style","display:none");
     document.getElementById("logup").setAttribute("Style","display:none");
     document.getElementById("logoutbtn").setAttribute("Style","display:block");
+  }
+  loadmop()
+  {
+    this.userService.getMopDetails().subscribe(response =>{ 
+      const body  =response.json();
+      this.payment=body;
+      console.log(this.payment);
+    console.log(body);  
+   })
   }
 
   onSave(){

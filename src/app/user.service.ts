@@ -25,26 +25,33 @@ export class UserService implements CanActivate{
   {
     return this.http.get(this.url + '/expense-income' );
   }
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    // check if user has logged in
-    if (sessionStorage['login_status'] == '1') {
-      return true;
-    }
 
-    this.router.navigate(['/home']);
+  getMopDetails()
+  {
+    return this.http.get(this.url + '/mop' );
+  }
+  getExpenseDetails()
+  {
+    return this.http.get(this.url + '/savecatexp' );
+  }
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (sessionStorage['login_status'] === '1') {
+      return true;
+    }this.router.navigate(['/login']);
     return false;
   }
+
   login(email: string, password: string) {
     const body = {
       email: email,
       password: password
     };
-
     const headers = new Headers({'Content-Type': 'application/json'});
     const requestOptions = new RequestOptions({headers: headers});
-
     return this.http.post(this.url + '/login', body, requestOptions);
   }
+
+
   signup(fname: string, lname: string, email: string, password: string, role: string) {
     const body = {
       fname: fname,
@@ -55,7 +62,6 @@ export class UserService implements CanActivate{
     };
     const headers = new Headers({'Content-Type': 'application/json'});
     const requestOptions = new RequestOptions({headers: headers});
-
     return this.http.post(this.url + '/register', body, requestOptions);
   }
 
@@ -73,7 +79,6 @@ export class UserService implements CanActivate{
     console.log(body)
     const headers = new Headers({'Content-Type': 'application/json'});
     const requestOptions = new RequestOptions({headers: headers});
-
     return this.http.post(this.url + '/transaction-expense', body, requestOptions);
   }
 
@@ -81,11 +86,20 @@ export class UserService implements CanActivate{
   {
     return this.http.delete(this.url + '/' + id);
   }
-
+  deletemop(iad:number)
+  {
+    return this.http.delete(this.url + '/mop/' + iad);
+  }
+  deletecat(iad:number)
+  {
+    return this.http.delete(this.url + '/mopexpense/' + iad);
+  }
   deleteuser(id: number) 
   {
     return this.http.delete(this.url + '/deleteuser/' + id);
   }
+
+
   deleteincome(abc: number) 
   {
     return this.http.delete(this.url + '/income/' + abc);
@@ -96,6 +110,7 @@ export class UserService implements CanActivate{
     console.log(expenseId);
     return this.http.get(this.url + '/' + expenseId);
   }
+
   getIncomeById(incomeid:number)
   {
     return this.http.get(this.url + '/income/' + incomeid); 
@@ -108,8 +123,9 @@ export class UserService implements CanActivate{
  {
   return this.http.get(this.url+'/adminsetting');
  }
-  updateExpense(assetid,name,amount,category,payment_type,expense_date,descrption)
-  {
+
+ updateExpense(assetid,name,amount,category,payment_type,expense_date,descrption)
+ {
     console.log(assetid);
     let newUrl=this.url+"/"+assetid;
     this.expense={
@@ -170,7 +186,6 @@ export class UserService implements CanActivate{
 
 updateSetting(id:number,email:string,password:string,fname:string,lname:string,role:string)
 {
-  
   let newUrl=this.url+"/setting/"+id;
   this.setting={
     id:id,
@@ -182,9 +197,9 @@ updateSetting(id:number,email:string,password:string,fname:string,lname:string,r
   }
   return this.http.put(newUrl,this.setting);
 }
+
 updateAdminSetting(id,email,password,fname,lname,role)
 {
-  
   let newUrl=this.url+"/adminsetting/"+id;
   this.setting={
     "id":id,
@@ -228,8 +243,72 @@ getuserdetails()
 {
   return this.http.get(this.url + '/userDetails' );
 }
+
+
 totalu()
 {
   return this.http.get(this.url + "/admin");
 }
+
+
+insertComp(complain:string)
+{
+  const body = {
+    complain:complain
+};
+console.log(body)
+const headers = new Headers({'Content-Type': 'application/json'});
+const requestOptions = new RequestOptions({headers: headers});
+
+return this.http.post(this.url + '/complaint', body, requestOptions);
+}
+
+getcompdetails()
+{
+  return this.http.get(this.url + '/useradmincomp' );
+}
+deleteusercomp(id)
+{
+  return this.http.delete(this.url + '/deleteusercomp/' + id);
+}
+
+
+signupadmin(fname: string, lname: string, email: string, password: string, role: string) {
+  const body = {
+    fname: fname,
+    lname: lname,
+    email: email,
+    password: password,
+    role : role
+  };
+  const headers = new Headers({'Content-Type': 'application/json'});
+  const requestOptions = new RequestOptions({headers: headers});
+  return this.http.post(this.url + '/adminuserregister', body, requestOptions);
+}
+
+savemop(modeofpayment:string)
+  {
+    const body = {
+  
+      modeofpayment:modeofpayment
+    };
+    console.log(body)
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const requestOptions = new RequestOptions({headers: headers});
+    return this.http.post(this.url + '/savemop', body, requestOptions);
+  }
+
+
+saveexpensecat(modeofexpense:string)
+{
+  const body = {
+
+    modeofexpense:modeofexpense
+  };
+  console.log(body)
+  const headers = new Headers({'Content-Type': 'application/json'});
+  const requestOptions = new RequestOptions({headers: headers});
+  return this.http.post(this.url + '/saveexpensecat', body, requestOptions);
+}
+
 }

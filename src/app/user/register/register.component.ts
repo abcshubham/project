@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit {
     }
     else
     {
-      this.userService.signup(this.fname,this.lname,this.email,this.password,this.role)
+      this.userService.signup(this.fname,this.lname,this.email,this.password,"user")
       .subscribe(response =>{
         if (response['_body'] == 'user registration succesful') 
         {

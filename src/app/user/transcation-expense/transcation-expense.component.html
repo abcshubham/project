@@ -40,10 +40,10 @@
       <div class="form-group">
         <label for="exampleFormControlSelect1">Mode of payment</label>
         <select class="form-control" [(ngModel)]="payment_type" id="exampleFormControlSelect1">
-            <option value="cash">cash</option>
-            <option value="card">card</option>
-            <option value="paytm">paytm</option>
-            <option value="other">Other</option>
+            
+            <option *ngFor='let mop of payment'>
+                {{mop.modeofpayment}}
+                </option>
         </select>
       </div>
     

@@ -22,20 +22,16 @@ export class LoginComponent implements OnInit {
 
 
   onLogin() {
-    if (this.email.length == 0) {
+    if (this.email.length === 0) {
       alert('enter email');
-    } else if (this.password.length == 0) {
+    } else if (this.password.length === 0) {
       alert('enter password');
     } else {
       this.userService
         .login(this.email, this.password)
         .subscribe(response => {
-         // const body = response.json();
           if (response['_body'] == 'user login succesful') {
-
-            // cache the login status
-            // localStorage
-            sessionStorage['login_status'] = '1';
+            sessionStorage['login_status'] ='1';
             sessionStorage.setItem('user',this.email);
 
             alert('welcome to the user');
@@ -56,7 +52,7 @@ export class LoginComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/home']);
   }
 
   onSignup() {

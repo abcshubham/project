@@ -1,0 +1,28 @@
+<div id="test1">
+    <form class="text-center">
+    <h1><b>Income Mode of Payment</b></h1><br>
+    <button type="button" (click)="newincome()" class="btn btn-success">Add New Income</button>
+    
+    <br><br>
+    
+  
+    <div class="row" style="margin-left: 150px">
+      <table class="table table-striped" border="3">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>ModeOfPayment</th>
+            <th class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let mop of payment">
+            <td>{{mop.iad}}</td>
+            <td>{{mop.modeofpayment}}</td>
+            <td><button (click)="onDelete(mop.iad)" class="btn btn-danger delete-button">DELETE</button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+  </div>
